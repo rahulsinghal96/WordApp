@@ -1,0 +1,15 @@
+<ion-view class="neutra">
+  <ion-content class="theme-bg" style="top:0px;">
+	<br>
+	<br>
+	 <div class="form">
+		<div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg"/></div>
+		  <form class="login-form" name="form1">
+			<input  type="email" placeholder="Email" name="email" ng-model="login.username"/>
+			<input type="password" placeholder="Password" name="pass" ng-model="login.password"/>
+				<button 	ng-click="login.appLOGIN()" ng-disabled="!form1.$valid">login</button>
+			<p  class="message">Not registered? <a href="#" ng-click="login.goToLogin()" >Create an account</a></p>
+		  </form>
+	</div>
+  </ion-content>
+</ion-view>

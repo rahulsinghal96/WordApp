@@ -1,0 +1,73 @@
+/* Empty. Add your own CSS if you like */
+@font-face {
+  font-family: 'Neutra Text';
+  src: url('../fonts/NeutraText-BookAlt.eot');
+  src: url('../fonts/NeutraText-BookAlt.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/NeutraText-BookAlt.woff2') format('woff2'),
+  url('../fonts/NeutraText-BookAlt.woff') format('woff'),
+  url('../fonts/NeutraText-BookAlt.ttf') format('truetype'),
+  url('../fonts/NeutraText-BookAlt.svg#NeutraText-BookAlt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Medium.eot');
+  src: url('../fonts/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Roboto-Medium.woff2') format('woff2'),
+  url('../fonts/Roboto-Medium.woff') format('woff'),
+  url('../fonts/Roboto-Medium.ttf') format('truetype'),
+  url('../fonts/Roboto-Medium.svg#Roboto-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.eot');
+  src: url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Roboto-Regular.woff2') format('woff2'),
+  url('../fonts/Roboto-Regular.woff') format('woff'),
+  url('../fonts/Roboto-Regular.ttf') format('truetype'),
+  url('../fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.eot');
+  src: url('../fonts/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Roboto-Light.woff2') format('woff2'),
+  url('../fonts/Roboto-Light.woff') format('woff'),
+  url('../fonts/Roboto-Light.ttf') format('truetype'),
+  url('../fonts/Roboto-Light.svg#Roboto-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Hipster Script Pro';
+  src: url('../fonts/HipsterScriptPro.eot');
+  src: url('../fonts/HipsterScriptPro.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/HipsterScriptPro.woff') format('woff'),
+  url('../fonts/HipsterScriptPro.ttf') format('truetype'),
+  url('../fonts/HipsterScriptPro.svg#HipsterScriptPro') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.hipster{
+  font-family: "Hipster Script Pro", SansSerif;
+}
+.neutra{
+  font-family: "Neutra Text", SansSerif;
+}
+.roboto-light{
+  font-family: "Roboto", SansSerif;
+  font-weight: 300;
+}
+.roboto-regular{
+  font-family: "Roboto", SansSerif;
+  font-weight: 400;
+}
+.roboto-medium{
+  font-family: "Roboto", SansSerif;
+  font-weight: 500;
+}

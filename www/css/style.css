@@ -1,0 +1,138 @@
+
+
+.button.button-otb-pink {
+  border-color: transparent;
+  background-color: #e22e4d;
+  color: #fff;
+}
+
+.button.button-otb-pink:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button.button-otb-pink.active, .button.button-otb-pink.activated {
+  border-color: #a2a2a2;
+  background-color: #e22e4d;
+}
+
+.button.button-otb-pink.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #e22e4d;
+}
+
+.button.button-otb-pink.button-icon {
+  border-color: transparent;
+  background: none;
+}
+
+.button.button-otb-pink.button-outline {
+  border-color: #e22e4d;
+  background: transparent;
+  color: #e22e4d;
+}
+
+.button.button-otb-pink.button-outline.active, .button.button-otb-pink.button-outline.activated {
+  background-color: #e22e4d;
+  box-shadow: none;
+  color: #fff;
+}
+
+
+
+/*--------------------------------HOME PAGE CSS START----------------------------------------------*/
+
+.story-list-image{
+  height:60px;
+  width:60px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 1px 3px #444;
+  overflow: hidden;
+  text-align: center;
+}
+.story-list-image.locked{
+  height:60px;
+  width:60px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+.story-list-image.locked i{
+  font-size: 3.5em;
+}
+.card.locked{
+  background-color: #ddd;
+}
+/*--------------------------------HOME PAGE CSS END----------------------------------------------*/
+
+
+
+/*--------------------------------STORY PAGE CSS START----------------------------------------------*/
+
+.story-page-number{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  z-index: 10;
+  display: inline-block;
+}
+.story-page-number-row{
+
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  text-align: center
+}
+.clickable-word{
+    min-height: 10px;
+    line-height: 17px;
+    border-radius: 20px;
+    border: 1px solid #33cd5f!important;
+    padding: 0px 5px;
+    font-size: 13px;
+}
+
+
+.button-rounded{
+  border-radius: 25px;
+}
+.word-modal{
+  min-height: 300px;
+}
+.shadow-button{
+  box-shadow: 0 1px 5px 1px #666;
+}
+.button.activated{
+  box-shadow: none;
+}
+.container-80{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.item-radio .radio-content .ion-checkmark{
+  display: none;
+}
+.correct-logo{
+  position: absolute;
+    top: 36%;
+    z-index: 11;
+    width: 90%;
+    text-align: center;
+    font-size: 10em!important;
+}
+.summary-bg{
+  background: aliceblue;
+}
+.stars{
+  width: 75%;
+  margin: auto;
+}
+/*--------------------------------STORY PAGE CSS END----------------------------------------------*/

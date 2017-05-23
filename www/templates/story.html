@@ -1,0 +1,81 @@
+<ion-view class="neutra" view-title="TALE OF THE HILLS">
+
+    <ion-content class="theme-bg">
+        <div class="story-page-number-row">
+            <div class="story-page-number theme-green-bg">1</div>
+        </div>
+        <ion-slide-box show-pager="false">
+            <ion-slide ng-repeat="slide in Slides">
+                <div class="card margin-5">
+                    <div class='row'>
+                        <div class='col'>
+                            <img src="img/hills.png" class="full-image">
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col neutra text-medium dark'>
+                           {{slide.attributes.description}}
+
+
+
+<!--						   Once upon a time, there was a sage called Deva Sharma who lived in a temple in the outskirts of a town. The Foolish Sage
+                            - Panchatantra Story PictureHe was widely known and respected. People would visit him, and offer
+                            him with gifts, food, money and garments to seek his blessings. The gifts that he did not need
+                            for himself, he would sell off, and got rich on the
+							<button class="button button-clear clickable-word margin-0 button-small button-balanced" ng-click="story.showModal()">proceeds</button>.
+							And by nature, he trusted nobody. He never trusted
+                            anybody. So, he kept all his money in a bag which he carried under his arm all the time. He would
+                            not part with the bag for a single moment.--!>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+            
+    
+            <ion-slide>
+                <div class="card margin-5 summary-bg">
+                    <div class='row'>
+                        <div class='col text-center hipster padding-top-30 padding-bottom-30 text-xxx-large'>
+                            Level 1 Completed !
+                        </div>
+                    </div>
+                    <div class='row padding-top-30 padding-bottom-30'>
+                        <div class='col text-center hipster'>
+                            <img src="img/stars.png" class="full-image stars">
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col text-right neutra text-medium'>
+                            Points available :
+                        </div>
+                        <div class='col text-center text-large'>
+                            30
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col text-right neutra text-medium'>
+                            Points earned :
+                        </div>
+                        <div class='col text-center text-large'>
+                            3
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col text-right neutra text-medium'>
+                            Overall points :
+                        </div>
+                        <div class='col  text-center text-large'>
+                            55
+                        </div>
+                    </div>
+                    <div class='row padding-top-30 padding-bottom-30'>
+                        <div class='col'>
+                            <button class="button button-block button-theme-green button-rounded margin-0 neutra text-large">Next Story</button>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+
+</ion-view>

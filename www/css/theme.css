@@ -1,0 +1,84 @@
+.theme-bg{
+    background: rgb(242,242,242);
+}
+.theme-green-bg{
+    background: rgb(122,196,84);
+}
+
+
+
+.button.button-theme-green {
+  border-color: transparent;
+  background-color: rgb(122,196,84);
+  color: #fff;
+}
+
+.button.button-theme-green:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.button.button-theme-green.active, .button.button-theme-green.activated {
+  border-color: #a2a2a2;
+  background-color: #245392;
+}
+
+.button.button-theme-green.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: rgb(122,196,84);
+}
+
+.button.button-theme-green.button-icon {
+  border-color: transparent;
+  background: none;
+}
+
+.button.button-theme-green.button-outline {
+  border-color: #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.button.button-theme-green.button-outline.active, .button.button-theme-green.button-outline.activated {
+  background-color: #fff;
+  box-shadow: none;
+  border: none;
+  color: rgb(122,196,84);
+}
+
+.button.button-theme-green.icon-left:before {
+  font-size: 36px;
+}
+
+.bar.bar-theme {
+    border-color: rgb(242,242,242);
+    background-color: rgb(242,242,242);
+    background-image: linear-gradient(0deg, rgb(242,242,242), rgb(242,242,242) 50%, transparent 50%);
+    color: #444; }
+.bar.bar-theme .title {
+    color: #444; }
+.bar.bar-theme.bar-footer {
+    background-image: linear-gradient(180deg, rgb(242,242,242), rgb(242,242,242) 50%, transparent 50%); }
+.bar-theme .button {
+    border-color: rgb(242,242,242);
+    background-color: rgb(242,242,242);
+    color: #444; }
+.bar-theme .button:hover {
+    color: #444;
+    text-decoration: none; }
+.bar-theme .button.active, .bar-theme .button.activated {
+    border-color: rgb(242,242,242);
+    background-color: rgb(242,242,242); }
+.bar-theme .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #444;
+    font-size: 17px; }
+.bar-theme .button.button-icon {
+    border-color: transparent;
+    background: none; }
+.button-bar.bar-theme > .button {
+    border-color: rgb(242,242,242); }

@@ -1,0 +1,91 @@
+<ion-modal-view class="transparent-bg">
+
+
+    <ion-content scroll="false" class=" padding-left-20 padding-right-20">
+
+        <i class="icon ion-checkmark balanced fade-in-zoom-slow animated zoomIn correct-logo" ng-if="story.showCheckmark"></i>
+        <i class="icon ion-android-close assertive fade-in-zoom-slow animated zoomIn correct-logo" ng-if="story.showCross"></i>
+
+        <div class="flip-container" ng-class="{'hover':story.flipped}">
+            <div class="flipper">
+                <div class="front">
+                    <div class="valign-parent" ng-style="story.fullHeight">
+                        <div class="valign-child ">
+                            <div class="card margin-0 word-modal valign-parent">
+                                <div class="container-80 valign-child">
+                                    <div class='row padding-bottom-30'>
+                                        <div class='col text-center neutra text-xxx-large dark'>
+                                            PROCEEDS
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col'>
+                                            <button class="button button-block button-outline button-positive button-rounded neutra text-large" ng-click="story.flip(1)">I know this word</button>
+
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col'>
+                                            <button class="button button-block button-assertive button-rounded margin-0 neutra text-large" ng-click="story.flip(2)">Na! Don't know this word</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="valign-parent" ng-style="story.fullHeight">
+                        <div class="valign-child ">
+                            <div class="card margin-0 word-modal valign-parent">
+                                <div class="container-80 valign-child" ng-if="story.state=='question'">
+                                    <div class='row padding-bottom-30 padding-top-30'>
+                                        <div class='col text-center neutra text-xxx-large dark'>
+                                            PROCEEDS
+                                        </div>
+                                    </div>
+                                    <div class='row row-no-padding'>
+                                        <div class='col text-center gray'>
+                                            Choose the correct meaning
+                                        </div>
+                                    </div>
+                                    <ion-list>
+                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(1)">Option 1</ion-radio>
+                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(2)">Option 2</ion-radio>
+                                        <ion-radio ng-model="story.option1">Option 3</ion-radio>
+                                        <ion-radio ng-model="story.option1">Option 4</ion-radio>
+                                    </ion-list>
+                                    <div class='row'>
+                                        <div class='col'>
+                                            <button class="button button-block button-outline button-balanced button-rounded neutra text-large" ng-click="story.flip()">Back</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container-80 valign-child" ng-if="story.state=='definition'">
+                                    <div class='row padding-bottom-30'>
+                                        <div class='col text-center neutra text-xxx-large dark'>
+                                            PROCEEDS
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col text-medium neutra gray'>
+                                            Proceeds means somethings which is given to someone
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class='col'>
+                                            <button class="button button-block button-clear button-balanced button-rounded neutra text-large" ng-click="story.closeModal()">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-modal-view>
