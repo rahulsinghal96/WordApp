@@ -15,6 +15,7 @@ angular.module('starter')
       return value.replace(/^\s+|\s+$/g, ''); 
     };
   })
+  
 
 
 

@@ -15,7 +15,7 @@
                                 <div class="container-80 valign-child">
                                     <div class='row padding-bottom-30'>
                                         <div class='col text-center neutra text-xxx-large dark'>
-                                            PROCEEDS
+                                            {{ModalWordCicked}}
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -43,7 +43,7 @@
                                 <div class="container-80 valign-child" ng-if="story.state=='question'">
                                     <div class='row padding-bottom-30 padding-top-30'>
                                         <div class='col text-center neutra text-xxx-large dark'>
-                                            PROCEEDS
+                                            {{ModalWordCicked}}
                                         </div>
                                     </div>
                                     <div class='row row-no-padding'>
@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                     <ion-list>
-                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(1)">Option 1</ion-radio>
+                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(1)">{{ModalWordCickedMeaning}}</ion-radio>
                                         <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(2)">Option 2</ion-radio>
                                         <ion-radio ng-model="story.option1">Option 3</ion-radio>
                                         <ion-radio ng-model="story.option1">Option 4</ion-radio>
@@ -66,12 +66,12 @@
                                 <div class="container-80 valign-child" ng-if="story.state=='definition'">
                                     <div class='row padding-bottom-30'>
                                         <div class='col text-center neutra text-xxx-large dark'>
-                                            PROCEEDS
+                                            {{ModalWordCicked}}
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col text-medium neutra gray'>
-                                            Proceeds means somethings which is given to someone
+                                            {{ModalWordCicked}} means {{ModalWordCickedMeaning}}
                                         </div>
                                     </div>
                                     <div class='row'>

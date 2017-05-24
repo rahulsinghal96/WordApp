@@ -33,6 +33,7 @@ angular.module('starter')
 
     home.goToStory = function(story){
 		$rootScope.story=story;
+		$rootScope.storyname=story.get("name");
 		$state.go('app.story');
     }
 

@@ -1,6 +1,33 @@
 /**
  * Created by abhishekrathore on 12/29/16.
  */
+//extract word from database
+ function extract_words(text)
+			{
+				var textArray = text.split(" ");
+				var i=0;
+				//var result=[]; uncomment to get words
+				while(i<=textArray.length)
+				{	
+					if(textArray[i]=="#_")
+					{	var start=i;
+						var string="";
+						while(textArray[i+1]!="_#")
+						{
+							var string =string+" "+textArray[i+1];
+							i++;
+						}
+						textArray[start]="<a href='javascript::' class='button button-clear clickable-word margin-0 button-small button-balanced' ng-click=\"story.showModal('"+string.trim()+"')\" >";
+						textArray[i+1]="</a>";
+						//result.push(string.trim()); uncomment to get array of words
+						
+					}
+					i++;
+				}
+					var finalTextToDisplay = textArray.join(" ");
+				return finalTextToDisplay;
+			}
+ //Main Controler
 (function () {
     'use strict';
 
@@ -8,7 +35,9 @@
 
         .controller('storyCtrl', function ($rootScope,$scope, AppConfig, $timeout, $state, $cordovaNetwork,
             $cordovaToast, $ionicLoading, $ionicModal) {
-            var story = this;
+				var story = this;
+				if(!$rootScope.user){$state.go("login");}
+			
 				var currentStory=$rootScope.story;
 				//console.log(currentStory);
 				var Story=Parse.Object.extend("Slides");
@@ -17,16 +46,21 @@
 					query.find({
 					  success:function(list) {
 						$timeout(function()
-						{
-							$scope.Slides=list;
-							console.log(list);
+						{	var description=[];
+							for(var i=0;i<list.length;i++)
+							{
+								var json=list[i];
+								description.push(extract_words(json.attributes.description));
+							}
+							$scope.storyTitle=$rootScope.storyname;
+							$scope.Slides=description;
+							
+							//console.log(description);
 						}, 200);
 						
 					  },
 					  error:function(error){console.log("error message");}
 					});
-					
-             if(!$rootScope.user){$state.go("login");}
             /*--------------------------------D E C L A R A T I O N S----------------------------------------------*/
             story.fullHeight = { 'height': AppConfig.devHeight - 44 + 'px' };
 
@@ -43,7 +77,7 @@
                 }
             }
 
-            story.showModal = function () {
+            story.showModal = function (wordTap) {
                 story.flipped = null;
                 $ionicModal.fromTemplateUrl('modals/word-modal.html', {
                     scope: $scope,
@@ -52,7 +86,21 @@
                     .then(function (modal) {
                         story.wordModal = modal;
                         story.wordModal.show();
-
+						var Word=Parse.Object.extend("Words");
+						var query= new Parse.Query(Word);
+							query.equalTo("word", wordTap);
+							query.find({
+							success:function(meaning){
+									$timeout(function(){
+										$scope.ModalWordCicked=wordTap;
+										$scope.ModalWordCickedMeaning=meaning[0].attributes.meaning;
+									},100);
+								},
+							error:function(){
+									console.log("error");
+								}
+							});
+							
                     })
             };
             story.closeModal = function () {
