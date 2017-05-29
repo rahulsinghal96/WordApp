@@ -9,10 +9,7 @@ angular.module('starter')
     
 
     /*--------------------------------F U N C T I O N S----------------------------------------------*/
-    loginPage.goToLogin = function(){
-      console.log("register");
-	  $state.go('register');
-    }
+    
 
     loginPage.appLOGIN = function(){
      var username=$scope.login.username;
@@ -22,12 +19,14 @@ angular.module('starter')
         $rootScope.user=loginUser;
         console.log("login success");
         $state.go("app.home");
-      },
+		},
 		  error:function(error){console.log(error.message);}
 	   });
+	 }
+
+	loginPage.goToLogin = function(){
+	  $state.go("app.home");
     }
-
-
 
     /*--------------------------------A P I  C A L L S----------------------------------------------*/
 
