@@ -33,7 +33,7 @@
 
     angular.module('starter')
 
-        .controller('storyCtrl', function ($rootScope,$scope, AppConfig, $timeout, $state, $cordovaNetwork,
+        .controller('storyCtrl', function ($ionicSlideBoxDelegate,$rootScope,$scope, AppConfig, $timeout, $state, $cordovaNetwork,
             $cordovaToast, $ionicLoading, $ionicModal) {
 				var story = this;
 				if(!$rootScope.user){$state.go("login");}
@@ -55,6 +55,7 @@
 							$scope.storyTitle=$rootScope.storyname;
 							$scope.Slides=description;
 							
+							$ionicSlideBoxDelegate.update();
 							//console.log(description);
 						}, 200);
 						

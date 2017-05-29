@@ -27,6 +27,11 @@ angular.module('starter')
 	loginPage.goToLogin = function(){
 	  $state.go("app.home");
     }
+	
+	loginPage.goToRegister = function(){
+	//console.log("goto register");
+	  $state.go("register");
+    }
 
     /*--------------------------------A P I  C A L L S----------------------------------------------*/
 
