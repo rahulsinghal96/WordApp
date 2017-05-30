@@ -21,8 +21,8 @@ angular.module('starter')
 							{
 								arrayWords.push(data[i].attributes.word);
 							}
-							$rootScope.UserVisitedWords=arrayWords.join(":");
-							
+							$rootScope.UserVisitedWords=arrayWords;
+							console.log($rootScope.UserVisitedWords)
 						 },
 						error:function()
 						{
@@ -61,7 +61,7 @@ angular.module('starter')
 							{
 								arrayWords.push(data[i].attributes.word);
 							}
-							$rootScope.UserVisitedWords=arrayWords.join(":");
+							$rootScope.UserVisitedWords=arrayWords;
 							
 						 },
 						error:function()
