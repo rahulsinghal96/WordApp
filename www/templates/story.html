@@ -5,8 +5,8 @@
             <div class="story-page-number theme-green-bg">1</div>
         </div>
         <ion-slide-box show-pager="false">
-            <ion-slide ng-repeat="slide in Slides | orderBy:'slide.attributes.slideOrder'">
-                <div class="card margin-5">
+            <ion-slide style="height:100%;" ng-repeat="slide in Slides | orderBy:'slide.attributes.slideOrder'">
+                <div style="position:relative;top:50%;" class="card margin-5 row-center">
                     <div class='row'>
                         <div class='col'>
                             <img src="img/hills.png" class="full-image">

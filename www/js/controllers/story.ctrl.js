@@ -2,10 +2,25 @@
  * Created by abhishekrathore on 12/29/16.
  */
 //extract word from database
- function extract_words(text)
-			{
+			
+
+ //Main Controler
+(function () {
+    'use strict';
+
+    angular.module('starter')
+
+        .controller('storyCtrl', function ($ionicSlideBoxDelegate,$rootScope,$scope, AppConfig, $timeout, $state, $cordovaNetwork,
+            $cordovaToast, $ionicLoading, $ionicModal) {
+				var story = this;
+				
+				/*------------------other imp functions----------------------------------------------------------------------------------------*/
+			function extract_words(text)
+				{
+				var WordVisited=Parse.Object.extend("WordsVisited");
 				var textArray = text.split(" ");
 				var i=0;
+				
 				//var result=[]; uncomment to get words
 				while(i<=textArray.length)
 				{	
@@ -17,8 +32,20 @@
 							var string =string+" "+textArray[i+1];
 							i++;
 						}
-						textArray[start]="<a href='javascript::' class='button button-clear clickable-word margin-0 button-small button-balanced' ng-click=\"story.showModal('"+string.trim()+"')\" >";
-						textArray[i+1]="</a>";
+						//check if the word is with the user 
+						//console.log($rootScope.UserVisitedWords);
+							if(!$rootScope.UserVisitedWords.match(string.trim())){
+								console.log("match");
+								var stylechange="";
+								textArray[start]="<a href='javascript::' class='button button-clear clickable-word margin-0 button-small button-balanced' ng-click=\"story.showModal('"+string.trim()+"')\" >";
+								textArray[i+1]="</a>";
+							}else 
+							{	
+								console.log("Not match");
+								textArray[start]="<a href='javascript::' style='color:red;' class='button button-clear clickable-word margin-0 button-small button-balanced' >";
+								textArray[i+1]="</a>";
+							}		 
+										
 						//result.push(string.trim()); uncomment to get array of words
 						
 					}
@@ -27,17 +54,16 @@
 					var finalTextToDisplay = textArray.join(" ");
 				return finalTextToDisplay;
 			}
- //Main Controler
-(function () {
-    'use strict';
 
-    angular.module('starter')
-
-        .controller('storyCtrl', function ($ionicSlideBoxDelegate,$rootScope,$scope, AppConfig, $timeout, $state, $cordovaNetwork,
-            $cordovaToast, $ionicLoading, $ionicModal) {
-				var story = this;
+				
+				
+				/*------------------other imp functions----------------------------------------------------------------------------------------*/
+				
+				
+				
+				
+				
 				if(!$rootScope.user){$state.go("login");}
-			
 				var currentStory=$rootScope.story;
 				//console.log(currentStory);
 				var Story=Parse.Object.extend("Slides");
@@ -57,13 +83,14 @@
 							
 							$ionicSlideBoxDelegate.update();
 							//console.log(description);
-						}, 200);
+						}, 2000);
 						
 					  },
 					  error:function(error){console.log("error message");}
 					});
             /*--------------------------------D E C L A R A T I O N S----------------------------------------------*/
             story.fullHeight = { 'height': AppConfig.devHeight - 44 + 'px' };
+			
 
 
             /*--------------------------------F U N C T I O N S----------------------------------------------*/
@@ -79,6 +106,21 @@
             }
 
             story.showModal = function (wordTap) {
+				//word add to database with user
+				var WordsVisited=Parse.Object.extend("WordsVisited");
+				var WordsVisit=new WordsVisited();
+					WordsVisit.save({
+							word:wordTap,
+							userID:$rootScope.user
+						},{
+						success:function(wordAdded){
+							console.log("word added to database with user");
+						},
+						error:function(){
+							console.log("word not added to database");
+						}
+					});
+				//flip of the modal	
                 story.flipped = null;
                 $ionicModal.fromTemplateUrl('modals/word-modal.html', {
                     scope: $scope,
@@ -143,8 +185,7 @@
             }
 
             /*--------------------------------A P I  C A L L S----------------------------------------------*/
-
-
+		
             /*--------------------------------R E D I R E C T I O N S----------------------------------------------*/
 
 

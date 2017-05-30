@@ -8,7 +8,10 @@
 				<input   type="email" placeholder="Email" name="email" ng-model="login.username"/>
 				<input type="password" placeholder="Password" name="pass" ng-model="login.password"/>
 					<button ng-click="login.appLOGIN()" ng-disabled="!form1.$valid">Login</button>
-				<p  class="message">Not registered? <a ng-click="login.goToRegister()" >Create an account</a></p>
+					  <button ng-click="login.googleLogin()" ng-disabled="!form1.$valid">Google Login</button>
+						<p  class="message"> <a ng-click="login.forgetPassword()" >Forget Password</a></p>
+						<p  class="message">Not registered? <a ng-click="login.goToRegister()" >Create an account</a></p>
+			
 			  </form>
 			 
 		</div>

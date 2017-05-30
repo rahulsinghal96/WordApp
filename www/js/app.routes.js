@@ -20,6 +20,13 @@ angular.module('starter')
         controller: 'loginCtrl',
         controllerAs: 'login'
       })
+       .state('resetPassword', {
+        url: 'resetPassword',
+        templateUrl: 'templates/resetPassword.html',
+        controller: 'resetPasswordCtrl',
+        controllerAs: 'resetPassword'
+      })
+      
        .state('register', {
         url: '/register',
         templateUrl: 'templates/register.html',
