@@ -1,7 +1,9 @@
 <ion-view class="neutra" view-title="{{storyTitle}}">
 
     <ion-content class="theme-bg">
-        <div class="story-page-number-row">
+	
+	<img ng-if="!story.StoryPointBoard" style="position:fixed;top:350px;bottom:0;left:0;right:0;" src="img/waiting.jpg" class="full-image stars">
+        <div ng-if="story.StoryPointBoard" class="story-page-number-row">
             <div class="story-page-number theme-green-bg">1</div>
         </div>
         <ion-slide-box show-pager="false">
@@ -18,9 +20,8 @@
                     </div>
                 </div>
             </ion-slide>
-            
     
-            <ion-slide>
+            <ion-slide ng-if="story.StoryPointBoard">
                 <div class="card margin-5 summary-bg">
                     <div class='row'>
                         <div class='col text-center hipster padding-top-30 padding-bottom-30 text-xxx-large'>

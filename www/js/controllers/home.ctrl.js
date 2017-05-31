@@ -2,7 +2,7 @@ angular.module('starter')
 
   .controller('homeCtrl', function ($rootScope,$scope,$timeout,$cordovaOauth, AppConfig, $window, $http, $state, $ionicLoading) {
     var home = this;
-		
+		$ionicLoading.show({'template' : 'Loading..'});
 		//Parse.User.logOut();
 		 if(!$rootScope.user){$state.go("login");}
 		var Stories=Parse.Object.extend("Story");
@@ -16,6 +16,7 @@ angular.module('starter')
 				$timeout(function()
 					{
 						$scope.Stories=serverStories;
+						$ionicLoading.hide();
 						//console.log(serverStories);
 					}, 200);
          

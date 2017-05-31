@@ -1,6 +1,6 @@
 angular.module('starter')
 
-  .controller('loginCtrl', function ($rootScope,$scope,$cordovaOauth, AppConfig, $window, $http, $state, $ionicLoading,$localStorage,socialSignIn,CordovaFacebook) {
+  .controller('loginCtrl', function ($rootScope,$scope,$cordovaOauth, AppConfig, $window, $http, $state, $ionicLoading,$localStorage,socialSignIn) {
     var loginPage = this;
 	
 	

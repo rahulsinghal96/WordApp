@@ -13,7 +13,7 @@
 		.controller('storyCtrl', function ($ionicSlideBoxDelegate, $rootScope, $scope, AppConfig, $timeout, $state, $cordovaNetwork,
 			$cordovaToast, $ionicLoading, $ionicModal) {
 			var story = this;
-
+			$ionicLoading.show({'template' : 'Loading..'});
 			/*------------------other imp functions----------------------------------------------------------------------------------------*/
 			function extract_words(text) {
 				var WordVisited = Parse.Object.extend("WordsVisited");
@@ -35,14 +35,14 @@
 							$scope['isClicked_' + i] = true;
 
 							textArray[start] = "<a href='javascript::' class='button button-clear clickable-word margin-0 button-small button-balanced' ng-style='isClicked_" + i + " && {\"color\": \"red\"}' ng-click=\"story.showModal('" + string.trim() + "',isClicked_" + i + ");isClicked_" + i + " = true;\" >";
-							textArray[i + 1] = "{{isClicked_+"+ i+ "}}</a>";
+							textArray[i + 1] = "</a>";
 							//result.push(string.trim()); uncommient to get array of words
 
 						}
 						i++;
 					}
 					var finalTextToDisplay = textArray.join(" ");
-					//console.log('textArray', $scope)
+					//console.log('textArray', finalTextToDisplay);
 					return finalTextToDisplay;
 				}
 
@@ -70,8 +70,10 @@
 							}
 							$scope.storyTitle = $rootScope.storyname;
 							$scope.Slides = description;
-
 							$ionicSlideBoxDelegate.update();
+							//enableing story board Point
+							story.StoryPointBoard=true;
+							$ionicLoading.hide();
 							//console.log(description);
 						}, 2000);
 
