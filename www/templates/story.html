@@ -2,11 +2,20 @@
 
     <ion-content class="theme-bg">
 	
-	<img ng-if="!story.StoryPointBoard" style="position:fixed;top:350px;bottom:0;left:0;right:0;" src="img/waiting.jpg" class="full-image stars">
-        <div ng-if="story.StoryPointBoard" class="story-page-number-row">
+		<div ng-if="story.StoryPointBoard" class="story-page-number-row">
             <div class="story-page-number theme-green-bg">1</div>
         </div>
         <ion-slide-box show-pager="false">
+		   <ion-slide ng-if="!story.StoryPointBoard" style="height:100%;" >
+                <div style="position:relative;top:50%;" class="card margin-5 row-center">
+                    <div class='row'>
+                        <div class='col'>
+                            <img src="img/waiting.jpg" class="full-image">
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+			
             <ion-slide style="height:100%;" ng-repeat="slide in Slides | orderBy:'slide.attributes.slideOrder'">
                 <div style="position:relative;top:50%;" class="card margin-5 row-center">
                     <div class='row'>

@@ -70,9 +70,9 @@
 							}
 							$scope.storyTitle = $rootScope.storyname;
 							$scope.Slides = description;
+							story.StoryPointBoard=true;
 							$ionicSlideBoxDelegate.update();
 							//enableing story board Point
-							story.StoryPointBoard=true;
 							$ionicLoading.hide();
 							//console.log(description);
 						}, 2000);
