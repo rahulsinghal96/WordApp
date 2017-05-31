@@ -1,18 +1,20 @@
 angular.module('starter')
 
-  .controller('loginCtrl', function ($rootScope,$scope,$cordovaOauth, AppConfig, $window, $http, $state, $ionicLoading,$localStorage,socialSignIn) {
+  .controller('loginCtrl', function ($rootScope,$scope,$cordovaOauth, AppConfig, $window, $http, $state, $ionicLoading,$localStorage,socialSignIn,CordovaFacebook) {
     var loginPage = this;
 	
 	
 	var WordVisited=Parse.Object.extend("WordsVisited");
 	var query=new Parse.Query(WordVisited);
-	
+	console.log($localStorage.username);
+	//direc login by cradentials saved in localstorage
 	if($localStorage.username!="" && $localStorage.password!="")
 	{
 		Parse.User.logIn($localStorage.username,$localStorage.password,{
 			  success:function(loginUser){
 					$rootScope.user=loginUser;	
 				//console.log($rootScope.user);
+				//retriving data from the viewTable
 				query.equalTo("userID",loginUser);
 				query.find({
 					success:function(data){
@@ -22,7 +24,7 @@ angular.module('starter')
 								arrayWords.push(data[i].attributes.word);
 							}
 							$rootScope.UserVisitedWords=arrayWords;
-							console.log($rootScope.UserVisitedWords)
+							//console.log($rootScope.UserVisitedWords)
 						 },
 						error:function()
 						{
@@ -80,9 +82,22 @@ angular.module('starter')
 	 
 	 loginPage.googleLogin = function(){
     
-	socialSignIn.googleSignIn(function(data){
-		console.log(data);
-	});
+		CordovaFacebook.login({
+		   permissions: ['email', 'user_likes'],
+		   onSuccess: function(result) {
+			  if(result.declined.length > 0) {
+				 alert("The User declined something!");
+			  }
+			  /* ... */
+		   },
+		   onFailure: function(result) {
+			  if(result.cancelled) {
+				 alert("The user doesn't like my app");
+			  } else if(result.error) {
+				 alert("There was an error:" + result.errorLocalized);
+			  }
+		   }
+		});
     }
 	
 	

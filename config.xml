@@ -103,4 +103,8 @@
     <plugin name="cordova.plugins.diagnostic" spec="~3.2.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
     <plugin name="parse-push-plugin" spec="https://github.com/taivo/parse-push-plugin" />
+    <plugin name="cordova-plugin-facebook" spec="~0.2.2">
+        <variable name="FACEBOOK_DISPLAY_NAME" value="MyApp" />
+        <variable name="FACEBOOK_APP_ID" value="239273456554287" />
+    </plugin>
 </widget>

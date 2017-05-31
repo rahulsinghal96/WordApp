@@ -42,7 +42,7 @@
 						i++;
 					}
 					var finalTextToDisplay = textArray.join(" ");
-					console.log('textArray', $scope)
+					//console.log('textArray', $scope)
 					return finalTextToDisplay;
 				}
 
@@ -103,6 +103,7 @@
 						$rootScope.UserVisitedWords.push(wordTap);
 						WordsVisit.save({
 							word: wordTap,
+							storyID:$rootScope.story,
 							userID: $rootScope.user
 						}, {
 								success: function (wordAdded) {
