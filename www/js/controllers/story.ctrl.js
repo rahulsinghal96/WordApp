@@ -114,14 +114,15 @@
 						WordQuery.limit(100);
 						WordQuery.find({
 							success:function(WordList){
-								for(var i=0;i<3;i++)
-								{
-									var randomNumberGenerated=Math.floor(Math.random() * 100); 
-									console.log(randomNumberGenerated);
-									story.optionArray.push(WordList[randomNumberGenerated].attributes.meaning);
-								}
+								$timeout(function () {	
+									for(var i=0;i<3;i++)
+									{
+										var randomNumberGenerated=Math.floor(Math.random() * 100); 
+										console.log(randomNumberGenerated);
+										story.optionArray.push(WordList[randomNumberGenerated].attributes.meaning);
+									}
 								console.log("words Retrived");
-								
+								},200);
 							}
 						});
 						
