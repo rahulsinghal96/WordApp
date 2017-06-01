@@ -13,10 +13,17 @@
 		.controller('storyCtrl', function ($ionicSlideBoxDelegate, $rootScope, $scope, AppConfig, $timeout, $state, $cordovaNetwork,
 			$cordovaToast, $ionicLoading, $ionicModal) {
 			var story = this;
+			story.optionArray=[];
+			
+			var Word = Parse.Object.extend("Words");
+			var WordVisited = Parse.Object.extend("WordsVisited");
+			var Story = Parse.Object.extend("Slides");
+			
 			$ionicLoading.show({'template' : 'Loading..'});
+			//retriveOptions();
 			/*------------------other imp functions----------------------------------------------------------------------------------------*/
 			function extract_words(text) {
-				var WordVisited = Parse.Object.extend("WordsVisited");
+				
 				var textArray = text.split(" ");
 				var i = 0;
 
@@ -57,24 +64,28 @@
 				if (!$rootScope.user) { $state.go("login"); }
 				var currentStory = $rootScope.story;
 				//console.log(currentStory);
-				var Story = Parse.Object.extend("Slides");
+				
 				var query = new Parse.Query(Story);
 				query.equalTo("storyID", currentStory);
 				query.find({
 					success: function (list) {
 						$timeout(function () {
-							var description = [];
+							var desc=[];
 							for (var i = 0; i < list.length; i++) {
-								var json = list[i];
-								description.push(extract_words(json.attributes.description));
+								var json = list[i].toJSON();
+								var data={};
+									data.description=extract_words(json.description);
+									data.slideOrder=json.slideOrder;
+									data.url=json.url;
+									desc.push(data);
+									//console.log(json);
 							}
 							$scope.storyTitle = $rootScope.storyname;
-							$scope.Slides = description;
+							$scope.Slides = desc;
 							story.StoryPointBoard=true;
 							$ionicSlideBoxDelegate.update();
-							//enableing story board Point
 							$ionicLoading.hide();
-							//console.log(description);
+
 						}, 2000);
 
 					},
@@ -96,9 +107,29 @@
 						story.state = 'definition'
 					}
 				}
+				
+				function retriveOptions() {
+					console.log("retrive words function called");
+					var WordQuery = new Parse.Query(Word);
+						WordQuery.limit(100);
+						WordQuery.find({
+							success:function(WordList){
+								for(var i=0;i<3;i++)
+								{
+									var randomNumberGenerated=Math.floor(Math.random() * 100); 
+									console.log(randomNumberGenerated);
+									story.optionArray.push(WordList[randomNumberGenerated].attributes.meaning);
+								}
+								console.log("words Retrived");
+								
+							}
+						});
+						
+				}
 
 				story.showModal = function (wordTap, isClickedFlag) {
 					if (!isClickedFlag) {
+						retriveOptions();
 						//word add to database with user
 						var WordsVisited = Parse.Object.extend("WordsVisited");
 						var WordsVisit = new WordsVisited();
@@ -124,14 +155,18 @@
 							.then(function (modal) {
 								story.wordModal = modal;
 								story.wordModal.show();
-								var Word = Parse.Object.extend("Words");
+								
 								var query = new Parse.Query(Word);
 								query.equalTo("word", wordTap);
 								query.find({
 									success: function (meaning) {
+										console.log("word meaning found");
 										$timeout(function () {
 											$scope.ModalWordCicked = wordTap;
-											$scope.ModalWordCickedMeaning = meaning[0].attributes.meaning;
+											$scope.ModalWordCickedMeaning=meaning[0].attributes.meaning.trim();
+											console.log($scope.ModalWordCickedMeaning);
+											story.optionArray.push($scope.ModalWordCickedMeaning);
+											
 										}, 100);
 									},
 									error: function () {
@@ -143,6 +178,7 @@
 					}
 				};
 				story.closeModal = function () {
+					story.optionArray=[];
 					story.wordModal.hide();
 					$timeout(function () {
 						story.wordModal.remove();
@@ -150,15 +186,18 @@
 
 				}
 				//when the meaning is read by user, assign points
+				
+				
+				
+				
 				story.meaningRead = function () {
-
+					
 				}
 
 				//when the question is answered by user, check and assign points
 				story.checkAnswer = function (answer) {
-
 					//Dummy logic, correct later
-					if (answer == 1) {
+					if (answer == $scope.ModalWordCickedMeaning) {
 						$timeout(function () {
 							story.showCheckmark = true;
 						}, 500)

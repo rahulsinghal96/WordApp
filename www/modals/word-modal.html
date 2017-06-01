@@ -52,10 +52,7 @@
                                         </div>
                                     </div>
                                     <ion-list>
-                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(1)">{{ModalWordCickedMeaning}}</ion-radio>
-                                        <ion-radio ng-model="story.option1" ng-click="story.checkAnswer(2)">Option 2</ion-radio>
-                                        <ion-radio ng-model="story.option1">Option 3</ion-radio>
-                                        <ion-radio ng-model="story.option1">Option 4</ion-radio>
+                                        <ion-radio style="max-width:240px;"  ng-repeat="wordList in story.optionArray" ng-model="story.option1" ng-click="story.checkAnswer(wordList)">{{wordList}}</ion-radio>
                                     </ion-list>
                                     <div class='row'>
                                         <div class='col'>

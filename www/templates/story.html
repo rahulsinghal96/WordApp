@@ -16,15 +16,16 @@
                 </div>
             </ion-slide>
 			
-            <ion-slide style="height:100%;" ng-repeat="slide in Slides | orderBy:'slide.attributes.slideOrder'">
+            <ion-slide style="height:100%;" ng-repeat="slide in Slides | orderBy:'slideOrder'">
                 <div style="position:relative;top:50%;" class="card margin-5 row-center">
                     <div class='row'>
                         <div class='col'>
-                            <img src="img/hills.png" class="full-image">
+                            <img ng-if="slide.url" src="{{slide.url}}" class="full-image">
+                            <img ng-if="!slide.url" src="img/hills.png" class="full-image">
                         </div>
                     </div>
                     <div class='row'>
-                        <div class='col neutra text-medium dark' compile="slide">
+                        <div class='col neutra text-medium dark' compile="slide.description">
                         </div>
                     </div>
                 </div>
