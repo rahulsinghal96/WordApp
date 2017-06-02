@@ -18,8 +18,8 @@
 			var Word = Parse.Object.extend("Words");
 			var WordVisited = Parse.Object.extend("WordsVisited");
 			var Story = Parse.Object.extend("Slides");
-			
 			$ionicLoading.show({'template' : 'Loading..'});
+			  retriveOptions();
 			//retriveOptions();
 			/*------------------other imp functions----------------------------------------------------------------------------------------*/
 			function extract_words(text) {
@@ -130,7 +130,7 @@
 
 				story.showModal = function (wordTap, isClickedFlag) {
 					if (!isClickedFlag) {
-						retriveOptions();
+						
 						//word add to database with user
 						var WordsVisited = Parse.Object.extend("WordsVisited");
 						var WordsVisit = new WordsVisited();
@@ -180,6 +180,7 @@
 				};
 				story.closeModal = function () {
 					story.optionArray=[];
+					retriveOptions();
 					story.wordModal.hide();
 					$timeout(function () {
 						story.wordModal.remove();
