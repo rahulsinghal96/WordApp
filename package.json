@@ -18,7 +18,7 @@
         "cordova-plugin-geolocation": "~2.1.0",
         "cordova-plugin-googleplus": "^5.1.1",
         "cordova-plugin-image-picker": "~1.1.1",
-        "cordova-plugin-inappbrowser": "~1.2.0",
+        "cordova-plugin-inappbrowser": "~4.0.0",
         "cordova-plugin-inapppurchase": "~1.1.0",
         "cordova-plugin-network-information": "~1.2.0",
         "cordova-plugin-request-location-accuracy": "~2.2.0",
